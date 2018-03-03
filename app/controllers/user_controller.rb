@@ -10,7 +10,9 @@ class UserController < ApplicationController
   end
 
   get '/signup' do
-    redirect '/tweets' if logged_in?
+    if logged_in?
+      redirect '/tweets'
+    end
     haml :'users/create_user'
   end
 
