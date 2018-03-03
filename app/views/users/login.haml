@@ -1,0 +1,17 @@
+%form(action="/login" method="post")
+  .form-group
+    %label
+      Username:
+      %input#username(type="text" name="username")
+
+  .form-group
+    %label
+      Email:
+      %input#email(type="email" name="email")
+
+  .form-group
+    %label
+      Password
+      %input#password(type="password" name="password")
+
+  %input#submit.btn.btn-danger(type="submit" name="submit" value="Log In")
