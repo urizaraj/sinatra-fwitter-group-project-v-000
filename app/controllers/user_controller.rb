@@ -10,9 +10,7 @@ class UserController < ApplicationController
   end
 
   get '/signup' do
-    if logged_in?
-      redirect '/tweets'
-    end
+    redirect '/tweets' if logged_in?
     haml :'users/create_user'
   end
 
@@ -35,6 +33,12 @@ class UserController < ApplicationController
     redirect '/login' unless user && user.authenticate(params[:password])
 
     session[:user_id] = user.id
+    flash[:message] = "Welcome, #{user.username}."
     redirect '/tweets'
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/login'
   end
 end

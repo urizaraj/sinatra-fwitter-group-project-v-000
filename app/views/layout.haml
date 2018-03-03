@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %link(rel="stylesheet" href="/style.css")
+    -# %link(rel="stylesheet" href="/style.css")
     %link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
   %body
     .navbar.navbar-expand-lg.navbar-dark.bg-danger.mb-3
@@ -12,6 +12,8 @@
           %a.nav-link(href="/signup") Sign Up
         %li.nav-item
           %a.nav-link(href="/login") Log In
+        %li.nav-item
+          %a.nav-link(href="/logout") Log Out
 
     .container
       = yield
