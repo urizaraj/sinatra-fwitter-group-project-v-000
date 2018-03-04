@@ -10,26 +10,27 @@ class UserController < ApplicationController
   end
 
   get '/signup' do
-    return redirect to('/tweets') if logged_in?
+    redirect to('/tweets') if logged_in?
     haml :'users/create_user'
   end
 
   post '/signup' do
+    redirect to('/signup') if params.has_value?('')
+
     params.delete(:submit)
-    return redirect to('/signup') if params.has_value?('')
     user = User.create(params)
     redirect to('/tweets')
   end
 
   get '/login' do
-    return redirect to('/tweets') if logged_in?
+    redirect to('/tweets') if logged_in?
     haml :'users/login'
   end
 
   post '/login' do
     user = User.find_by(username: params[:username])
 
-    return redirect to('/login') unless user && user.authenticate(params[:password])
+    redirect to('/login') unless user && user.authenticate(params[:password])
 
     session[:user_id] = user.id
     flash[:message] = "Welcome, #{user.username}."
