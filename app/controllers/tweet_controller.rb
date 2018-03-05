@@ -7,6 +7,7 @@ class TweetController < ApplicationController
   end
 
   get '/tweets/new' do
+    redirect to 'login' unless logged_in?
     haml :'tweets/create_tweet'
   end
 
@@ -19,5 +20,15 @@ class TweetController < ApplicationController
     tweet.save
 
     redirect to '/tweets'
+  end
+
+  get '/tweets/:id' do
+    redirect to 'login' unless logged_in?
+    @tweet = Tweet.find(params[:id])
+    haml :'tweets/show_tweet'
+  end
+
+  get '/tweets/:id/edit' do
+    haml :'tweets/edit_tweet'
   end
 end
