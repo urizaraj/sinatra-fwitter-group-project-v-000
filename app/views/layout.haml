@@ -8,32 +8,36 @@
       a {text-decoration: none !important;}
 
   %body
-    .navbar.navbar-expand-lg.navbar-dark.bg-danger.mb-3
+    .navbar.navbar-expand-lg.navbar-dark.bg-danger.mb-3.justify-content-between
       %ul.navbar-nav
         %li.nav-item
           %a.nav-link(href="/")
             %i.fas.fa-home
             Home
-        %li.nav-item
-          %a.nav-link(href="/tweets")
-            %i.fas.fa-hashtag
-            Tweets
-        - unless logged_in?
+        - if logged_in?
+          %li.nav-item
+            %a.nav-link(href="/tweets")
+              %i.fas.fa-hashtag
+              Tweets
+          %li.nav-item
+            %a.nav-link(href="/tweets/new")
+              %i.fas.fa-plus-circle
+              New Tweet
+
+      - unless logged_in?
+        %ul.navbar-nav
           %li.nav-item
             %a.nav-link(href="/signup")
-              %i.fas.fa-plus
+              %i.fas.fa-address-card
               Sign Up
           %li.nav-item
             %a.nav-link(href="/login")
               %i.fas.fa-sign-in-alt
               Sign In
 
-        - else
-          - user = current_user
-          %li.nav-item
-            %a.nav-link(href="/tweets/new")
-              %i.fas.fa-plus-circle
-              New Tweet
+      - else
+        - user = current_user
+        %ul.navbar-nav
           %li.nav-item
             %a.nav-link(href="/users/#{user.slug}")
               %i.fas.fa-user
