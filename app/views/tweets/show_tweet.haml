@@ -6,3 +6,7 @@
 
 - if current_user.id == @tweet.user.id
   %a(href="/tweets/#{@tweet.id}/edit") Edit This Tweet
+
+  %form(action="/tweets/#{@tweet.id}/delete" method="post")
+    %input(type="hidden" name="_method" value="delete")
+    %input#delete.btn.btn-danger(type="submit" value="Delete Tweet")

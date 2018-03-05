@@ -41,4 +41,10 @@ class TweetController < ApplicationController
     tweet.update(content: params[:content])
     redirect to "/tweets/#{tweet.id}"
   end
+
+  delete '/tweets/:id/delete' do
+    tweet = Tweet.find(params[:id])
+    tweet.delete
+    redirect to '/tweets'
+  end
 end
