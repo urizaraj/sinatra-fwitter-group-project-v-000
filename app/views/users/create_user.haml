@@ -1,17 +1,17 @@
-%form(action="/signup" method="post")
-  .form-group
-    %label
-      Username:
-      %input#username(type="text" name="username")
+%h1.display-4 Sign Up
 
-  .form-group
-    %label
-      Email:
-      %input#email(type="email" name="email")
+%br
 
-  .form-group
-    %label
-      Password
-      %input#password(type="password" name="password")
+.row
+  .col-md-6
+    %form(action="/signup" method="post")
+      .form-group
+        %input#username.form-control(type="text" name="username" placeholder="Username")
 
-  %input#submit.btn.btn-danger(type="submit" name="submit" value="Create User")
+      .form-group
+        %input#email.form-control(type="email" name="email" placeholder="Email")
+
+      .form-group
+        %input#password.form-control(type="password" name="password" placeholder="Password")
+
+      %input#submit.btn.btn-danger(type="submit" name="submit" value="Create User")

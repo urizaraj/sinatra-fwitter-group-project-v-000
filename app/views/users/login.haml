@@ -1,17 +1,18 @@
-%form(action="/login" method="post")
-  .form-group
-    %label
-      Username:
-      %input#username(type="text" name="username")
+%h1.display-4 Log In
 
-  -# .form-group
-  -#   %label
-  -#     Email:
-  -#     %input#email(type="email" name="email")
+%br
+.row
+  .col-md-6
+    %form(action="/login" method="post")
+      .form-group
+        %input#username.form-control(type="text" name="username" placeholder="Username")
 
-  .form-group
-    %label
-      Password
-      %input#password(type="password" name="password")
+      -# .form-group
+      -#   %label
+      -#     Email:
+      -#     %input#email(type="email" name="email")
 
-  %input#submit.btn.btn-danger(type="submit" name="submit" value="Log In")
+      .form-group
+        %input#password.form-control(type="password" name="password" placeholder="Password")
+
+      %input#submit.btn.btn-danger(type="submit" name="submit" value="Log In")
