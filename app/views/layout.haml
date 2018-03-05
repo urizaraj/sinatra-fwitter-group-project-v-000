@@ -20,9 +20,14 @@
             Tweets
         - unless logged_in?
           %li.nav-item
-            %a.nav-link(href="/signup") Sign Up
+            %a.nav-link(href="/signup")
+              %i.fas.fa-plus
+              Sign Up
           %li.nav-item
-            %a.nav-link(href="/login") Log In
+            %a.nav-link(href="/login")
+              %i.fas.fa-sign-in-alt
+              Sign In
+
         - else
           - user = current_user
           %li.nav-item
