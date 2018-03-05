@@ -21,14 +21,15 @@
           %li.nav-item
             %a.nav-link(href="/login") Log In
         - else
+          - user = current_user
           %li.nav-item
             %a.nav-link(href="/tweets/new")
               %i.fas.fa-plus-circle
               New Tweet
           %li.nav-item
-            %a.nav-link(href="#")
+            %a.nav-link(href="/users/#{user.slug}")
               %i.fas.fa-user
-              = current_user.username
+              = user.username
           %li.nav-item
             %a.nav-link(href="/logout")
               %i.fas.fa-sign-out-alt

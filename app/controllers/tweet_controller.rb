@@ -36,6 +36,7 @@ class TweetController < ApplicationController
 
   patch '/tweets/:id/edit' do
     redirect to 'login' unless logged_in?
+    redirect back if params.has_value?('')
     tweet = Tweet.find(params[:id])
     tweet.update(content: params[:content])
     redirect to "/tweets/#{tweet.id}"
