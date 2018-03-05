@@ -2,7 +2,7 @@ class TweetController < ApplicationController
   get '/tweets' do
     redirect to '/login' unless logged_in?
 
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order(id: :desc)
     haml :'tweets/tweets'
   end
 
