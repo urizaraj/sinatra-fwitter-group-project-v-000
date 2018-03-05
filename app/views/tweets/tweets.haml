@@ -1,4 +1,10 @@
 - if flash.has?(:message)
-  %h1= flash[:message]
+  .alert.alert-primary
+    %h1= flash[:message]
 
-%h1 tweets will go here
+%h1.display-4 Tweets
+
+- @tweets.each do |tweet|
+  .card
+    .card-body
+      = tweet.content

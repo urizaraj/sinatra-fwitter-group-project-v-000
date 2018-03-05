@@ -1,0 +1,7 @@
+%form(action="/tweets/new" method="post")
+  .form-group
+    %label
+      Content
+      %input#content(type="text" name="content")
+  .form-group
+    %input#submit.btn.btn-danger(type="submit" name="submit" value="Create Tweet")

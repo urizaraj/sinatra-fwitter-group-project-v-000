@@ -1,14 +1,4 @@
 class UserController < ApplicationController
-  helpers do
-    def current_user
-      User.find(session[:user_id])
-    end
-
-    def logged_in?
-      !!session[:user_id]
-    end
-  end
-
   get '/signup' do
     redirect to('/tweets') if logged_in?
     haml :'users/create_user'
