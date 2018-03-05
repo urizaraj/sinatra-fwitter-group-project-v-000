@@ -68,7 +68,6 @@ describe ApplicationController do
       session = {}
       session[:user_id] = user.id
       get '/signup'
-      pry.bind
       expect(last_response.location).to include('/tweets')
     end
   end

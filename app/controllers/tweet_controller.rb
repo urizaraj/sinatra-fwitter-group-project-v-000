@@ -1,5 +1,7 @@
 class TweetController < ApplicationController
   get '/tweets' do
+    redirect to '/login' unless logged_in?
+
     @tweets = Tweet.all
     haml :'tweets/tweets'
   end
@@ -9,7 +11,7 @@ class TweetController < ApplicationController
   end
 
   post '/tweets/new' do
-    redirect to('/tweets') if params.has_value?('')
+    redirect to('/tweets/new') if params.has_value?('')
 
     tweet = Tweet.new
     tweet.content = params[:content]
