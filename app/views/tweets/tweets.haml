@@ -8,4 +8,9 @@
   .card.mb-3
     .card-body
       = tweet.content
-    .card-footer=  tweet.user.username
+    .card-footer
+      .row
+        .col
+          = tweet.user.username
+        .col
+          %a(href="/tweets/#{tweet.id}") Link
