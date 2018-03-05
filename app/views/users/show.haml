@@ -1,0 +1,6 @@
+%h1.display-4= @user.username
+
+- @user.tweets.each do |tweet|
+  .card.mb-3
+    .card-body
+      tweet.content

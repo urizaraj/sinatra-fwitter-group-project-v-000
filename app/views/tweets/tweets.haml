@@ -2,9 +2,10 @@
   .alert.alert-primary
     %h1= flash[:message]
 
-%h1.display-4 Tweets
+%h1.display-4.mb-3 Tweets
 
 - @tweets.each do |tweet|
-  .card
+  .card.mb-3
     .card-body
       = tweet.content
+    .card-footer=  tweet.user.username

@@ -31,4 +31,9 @@ class UserController < ApplicationController
     session.clear
     redirect to('/login')
   end
+
+  get '/users/:slug' do
+    @user = User.find_by(params[:slug])
+    haml :'users/show'
+  end
 end
